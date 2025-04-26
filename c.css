@@ -1,0 +1,247 @@
+/* ===== Variables ===== */
+:root {
+    --bg-dark: #2b2d2f;
+    --card-bg: #1f1f1f;
+    --text-light: #ffffff;
+    --text-muted: #b0bec5;
+    --accent: #00e5ff;
+    --accent-secondary: #66fcf1;
+    --accent-glow: #00e5ff80;
+    --button-bg: #0f3262;
+    --button-hover: #133f7d;
+    --button-danger: #ff1744;
+    --input-bg: #1a1a1a;
+    --input-focus: #000000;
+}
+
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-dark);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-light);
+    transition: background 0.3s ease;
+    font-size: 18px;
+    min-height: 100vh;
+}
+
+.crud {
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ===== Header ===== */
+.head {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px var(--accent-glow);
+    margin-bottom: 30px;
+}
+
+.head h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: floatText 2s infinite ease-in-out;
+}
+
+.head p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* ===== Inputs ===== */
+input {
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: var(--input-bg);
+    color: var(--text-light);
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+input:hover, button:hover {
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+input:focus {
+    background: var(--input-focus);
+    transform: scale(1.02);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.price input {
+    width: 20%;
+}
+
+/* ===== Total Display ===== */
+#total {
+    background-color: var(--accent);
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+#total::before {
+    content: "Total Price: ";
+}
+
+/* ===== Buttons ===== */
+button {
+    width: 100%;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    background: var(--button-bg);
+    border-radius: 20px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--button-hover);
+    letter-spacing: 1px;
+    transform: scale(1.03);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#deleteAll button {
+    margin: 10px;
+    background: var(--button-danger);
+}
+
+#deleteAll button:hover {
+    background: #ff4569;
+}
+
+/* ===== Search Buttons ===== */
+.btnSearch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btnSearch button {
+    flex: 1 1 45%;
+}
+
+/* ===== Table ===== */
+table {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #00000060;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+}
+
+table tr:hover {
+    background-color: #333;
+}
+
+/* ===== Animations ===== */
+@keyframes floatText {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ===== Responsive Tweaks ===== */
+@media (max-width: 768px) {
+    .head h1 {
+        font-size: 2.2rem;
+    }
+
+    input, button {
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    .price input {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .btnSearch button {
+        flex: 1 1 100%;
+    }
+
+    table {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .head h1 {
+        font-size: 1.8rem;
+    }
+
+    .head p {
+        font-size: 1rem;
+    }
+
+    #total {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
