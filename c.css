@@ -12,7 +12,107 @@
     --button-danger: #ff1744;
     --input-bg: #1a1a1a;
     --input-focus: #000000;
+    --Mainbackground: #0D0D0D;
+    --Secondarybackground: #1A1A1A;
+    --Maintext: #FFFFFF;
+    --Secondarytext: #bfbfbf7c;
+    --Accentcolor: #7bf3f3;
+    --Warningcolor: #ea70a1;
+    --padding: 8%;
 }
+
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body Styling ===== */
+html, body {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+    color: var(--Maintext);
+    scroll-behavior: smooth;
+    background: var(--bg-dark); /* Added background color for body */
+    transition: background 0.3s ease; /* Smooth transition for background change */
+    min-height: 100vh;
+}
+
+/* ===== Animation for Gradient Background ===== */
+body {
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* ===== Utility Classes ===== */
+.crud {
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ===== Home Section ===== */
+.header {
+    width: 100%;
+    height: auto;
+    background-color: var(--Mainbackground);
+    display: flex;
+    flex-direction: column;
+    padding: 5px 5px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 15px;
+}
+
+span {
+    color: var(--Accentcolor);
+    text-decoration: none !important;
+
+}
+
+.logo {
+    text-decoration: none !important;
+    color: var(--Maintext);
+}
+
+h2 {
+    font-size: 2.2rem;
+    letter-spacing: 0.12rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav {
+    padding: 2rem ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0.8rem 1.5rem;
+}
+
+nav ul li a {
+    color: var(--Maintext);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.4s;
+    border-color: #00FFFF;
+}
+
+nav ul li a:hover {
+    color: var(--Secondarybackground);
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: var(--Accentcolor);
+}
+
 
 /* ===== Reset ===== */
 * {
@@ -21,16 +121,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: var(--bg-dark);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-light);
-    transition: background 0.3s ease;
-    font-size: 18px;
-    min-height: 100vh;
-}
 
 .crud {
     width: 95%;
@@ -245,3 +335,94 @@ table tr:hover {
     }
 }
 
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        text-align: center;
+        margin: 0 auto
+    }
+
+    nav ul {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        margin: 0 auto
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .head h1 {
+        font-size: 2rem;
+    }
+
+    .head p {
+        font-size: 1rem;
+    }
+
+    input, button {
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    .price input {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .btnSearch button {
+        flex: 1 1 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .head h1 {
+        font-size: 1.6rem;
+    }
+
+    .head p {
+        font-size: 0.9rem;
+    }
+
+    nav {
+        padding: 1rem 0.5rem;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    input, button {
+        font-size: 0.95rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    #total {
+        font-size: 0.95rem;
+        padding: 6px 10px;
+    }
+}
